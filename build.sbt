@@ -4,5 +4,10 @@ version := "0.1.0"
 
 scalaVersion := "2.11.6"
 
-libraryDependencies += "com.assembla.scala-incubator" %% "graph-core" % "1.9.2"
+libraryDependencies += "org.graphstream" % "gs-core" % "1.3"
+
+libraryDependencies += "org.graphstream" % "gs-algo" % "1.3"
+
+libraryDependencies += "org.codehaus.jackson" % "jackson-core-asl" % "1.1.0"
+
     

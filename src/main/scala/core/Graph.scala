@@ -53,6 +53,8 @@ class Graph[NodeData,EdgeData] {
     g.addNode(node.id.toString)
   }
 
+  def getNode(id:Long):Node[NodeData]=nodes(id)
+
   def addEdge(src:Long,dst:Long,data:EdgeData,label:String="",directed:Boolean=false,weight:Double=0.0):Unit=
     addEdge(new Edge(src,dst,data,label,directed,weight))
 
@@ -60,6 +62,8 @@ class Graph[NodeData,EdgeData] {
     edges((edge.src,edge.dst))=edge
     g.addEdge(edge.getId,edge.src.toString,edge.dst.toString,edge.directed)
   }
+
+  def getEdge(src:Long,dst:Long):Edge[EdgeData]=edges(src,dst)
 
   def connectedComponentsCount:Int={
     val cc = new ConnectedComponents(g)

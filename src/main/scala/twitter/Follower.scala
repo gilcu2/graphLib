@@ -3,14 +3,16 @@ package twitter.follower
 /**
  * Created by gil on 14/05/15.
  */
-class User(id:Long,screen_name:String,val isRoot:Boolean=false,val followerCount:Long=0,val tweetsCount:Long=0,
-                    val lang:String="",val timeZone:String="")
-  extends core.Node(id,screen_name)
+case class User(id:Long,screen_name:String,isRoot:Boolean=false,followerCount:Long=0,tweetsCount:Long=0,
+                    lang:String="",timeZone:String="")
+ 
+case class Following(src:Long,dst:Long,retweetCount:Long=0,mentionCount:Long=0)
+  
 
-class Following(src:Long,dst:Long,val retweetCount:Long=0,val mentionCount:Long=0)
-  extends core.Edge(src,dst,directed = true)
-
-class Graph extends core.Graph[User,Following]
+class Graph extends core.Graph[User,Following] {
+  def addUser(u:User):Unit=addNode(u.id,u,u.screen_name)
+  def addFollowing(f: Following)=addEdge(f.src,f.dst,f,directed = true)
+}
 
 
 

@@ -35,6 +35,7 @@ package twitter.javaInterface
 
 import java.util.List
 import collection.JavaConversions._
+import scala.collection.mutable
 import bds.twitter.model._
 import bds.twitter.model.enums.VertexType
 
@@ -43,12 +44,10 @@ class GraphFollowers extends  twitter.follower.Graph {
   def this(jNodes:List[UserVertex],jEdges:List[Edge])= {
     this
     import twitter.follower._
-    val nodes=jNodes.map(x=>new User(x.getId,x.getScreenName,x.isRoot,x.getFollowersCount,x.getTweetsCount,
-      x.getLang,x.getTimeZone)).toIterator
-    val edges=jEdges.map(x=>new Following(x.getSource,x.getTarget)).toIterator
+    jNodes.foreach(x=>addUser(new User(x.getId,x.getScreenName,x.isRoot,x.getFollowersCount,x.getTweetsCount,x.getLang,x.getTimeZone)))
 
-    addNodes(nodes)
-    addEdges(edges)
+    jEdges.foreach(x=>addFollowing(new Following(x.getSource,x.getTarget)))
+
   }
 }
 

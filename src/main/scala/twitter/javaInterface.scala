@@ -61,7 +61,8 @@ class GraphHashtag extends
 
       case x1:jModel.HashtagVertex=>addHashtag( new Hashtag (x1.getId, x1.getHashtagName, x1.getTweetsCount, x1.getRetweetsCount))
     })
-    val edges=jEdges.map(x=>new Twittering(x.getSource,x.getTarget,x.getTweetsCount,x.getRetweetsCount)).toIterator
+
+    jEdges.foreach(x=>addTwittering(x.getSource,x.getTarget,x.getTweetsCount,x.getRetweetsCount))
 
   }
 }

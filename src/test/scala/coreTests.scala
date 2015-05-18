@@ -1,6 +1,9 @@
 /**
  * Created by gil on 16/05/15.
  */
+
+package scalaTests
+
 import org.scalatest._
 import core._
 

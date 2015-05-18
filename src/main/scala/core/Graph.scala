@@ -29,6 +29,8 @@ class Edge[Data] private (val src:Long,val dst:Long,_label:String,val directed:B
     src.toString+conn+dst.toString
   }
 
+  override def toString=label
+
 }
 
 
@@ -45,6 +47,13 @@ class Graph[NodeData,EdgeData] {
   private val nodes=mutable.HashMap[Long,TNode]()
   private val edges=mutable.HashMap[(Long,Long),TEdge]()
 
+  override def toString={
+    "numNodes: "+nodes.size+" numEdjes: "+edges.size
+  }
+
+  def numNodes=nodes.size
+
+  def numEdges=edges.size
 
   def addNode(id:Long,data:NodeData,label:String="",weight:Double=0.0):Unit=addNode(new Node(id,data,label))
 

@@ -7,7 +7,7 @@ package coreTests
 import org.scalatest._
 import core._
 
-class ConnectedComponents extends FlatSpec with Matchers {
+class TGraph extends FlatSpec with Matchers {
   "Empty Graph" should "have 0 connected components" in {
     val g=new Graph[Int,Int]()
     g.connectedComponentsCount should be (0)
@@ -15,3 +15,11 @@ class ConnectedComponents extends FlatSpec with Matchers {
 
 }
 
+
+class THistogram extends FlatSpec with Matchers {
+  "this collecion" should "have histogram of two bins" in {
+    val container=Iterable(2,3,2)
+    g.connectedComponentsCount should be (0)
+  }
+
+}

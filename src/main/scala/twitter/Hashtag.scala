@@ -6,7 +6,7 @@ package twitter.hashtag
 
 trait HashtagNode
 
-case class Hashtag(id:Long,name:String,tweetsCount:Long,retweetsCount:Long) extends  HashtagNode
+case class Hashtag(id:Long,name:String,tweetsCount:Long=0,retweetsCount:Long=0) extends  HashtagNode
 
 import twitter.follower
 class User(id:Long,screen_name:String, isRoot:Boolean=false,followerCount:Long=0, tweetsCount:Long=0,

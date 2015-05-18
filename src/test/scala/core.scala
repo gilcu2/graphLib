@@ -2,7 +2,7 @@
  * Created by gil on 16/05/15.
  */
 
-package scalaTests
+package coreTests
 
 import org.scalatest._
 import core._
@@ -14,3 +14,4 @@ class ConnectedComponents extends FlatSpec with Matchers {
   }
 
 }
+

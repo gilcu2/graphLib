@@ -74,6 +74,8 @@ class Graph[NodeData,EdgeData] {
 
   def getEdge(src:Long,dst:Long):Edge[EdgeData]=edges(src,dst)
 
+  def mapNodes[A](f:NodeData=>A):Seq[A]=nodes.values.map(x=>f(x.data) ).toList
+
   def connectedComponentsCount:Int={
     val cc = new ConnectedComponents(g)
     cc.getConnectedComponentsCount

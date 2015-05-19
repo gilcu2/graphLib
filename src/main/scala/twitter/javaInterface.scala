@@ -38,6 +38,8 @@ import collection.JavaConversions._
 import scala.collection.mutable
 import bds.twitter.{model=>jModel}
 
+import core._
+
 class GraphFollowers extends  twitter.follower.Graph {
 
   def this(jNodes:List[jModel.UserVertex],jEdges:List[jModel.Edge])= {
@@ -49,7 +51,14 @@ class GraphFollowers extends  twitter.follower.Graph {
 
   }
 
-  def langHistogram:
+  def langHistogram:List[HistoBin]={
+    Histogram(mapNodes(_.lang)).bins.toList
+  }
+
+  def timeZoneHistogram:List[HistoBin]={
+    Histogram(mapNodes(_.timeZone)).bins.toList
+  }
+
 }
 
 class GraphHashtag extends

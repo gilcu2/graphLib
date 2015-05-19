@@ -1,5 +1,7 @@
 package core
 
+
+
 /**
  * Created by gil on 18/05/15.
  */
@@ -44,7 +46,7 @@ object Histogram {
         map(x => (x._1, x._2.reduce((x1, x2) => x1 + x2)))
 
 
-      val bins = bins0.toList.sortWith((x, y) => x._2 > y._2).take(nbins)
+      val bins = bins0.filter(_._2>0).toList.sortWith((x, y) => x._2 > y._2).take(nbins)
       val nInBins = bins.map(x => x._2).sum
       var histoBins = bins.map(x => HistoBin(subsets1(x._1).mkString(","), x._2))
 
@@ -64,3 +66,5 @@ object Histogram {
   }
 
 }
+
+

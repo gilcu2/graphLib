@@ -59,6 +59,11 @@ class GraphFollowers extends  twitter.follower.Graph {
     Histogram(mapNodes(_.timeZone)).bins.toList
   }
 
+  def followerCountHistogram:List[HistoBin]={
+    numericHistogram(mapNodes(_.followerCount)).bins.toList
+  }
+
+
 }
 
 class GraphHashtag extends

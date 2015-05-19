@@ -4,8 +4,10 @@
 
 package coreTests
 
+
 import org.scalatest._
 import core._
+
 
 class TGraph extends FlatSpec with Matchers {
   "Empty Graph" should "have 0 connected components" in {
@@ -18,8 +20,8 @@ class TGraph extends FlatSpec with Matchers {
 
 class THistogram extends FlatSpec with Matchers {
   "this collecion" should "have histogram of two bins" in {
-    val container=Iterable(2,3,2)
-    g.connectedComponentsCount should be (0)
+    val container=Seq(2,3,2)
+    Histogram(container) should be ( Histogram("x",Iterable(HistoBin("2",2),HistoBin("3",1))))
   }
 
 }

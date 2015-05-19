@@ -48,6 +48,8 @@ class GraphFollowers extends  twitter.follower.Graph {
     jEdges.foreach(x=>addFollowing(new Following(x.getSource,x.getTarget)))
 
   }
+
+  def langHistogram:
 }
 
 class GraphHashtag extends
